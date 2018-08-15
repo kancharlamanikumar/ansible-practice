@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+   - name: print contens of a file
+     command: cat /home/ansible/mani/kumar
+     register: cat_contents
+     ignore_errors: yes
+   - name: display contents
+     debug:
+       msg: "{{ cat_contents }}"
+
